@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Services — Lara Nikolau</title>
+<meta name="description" content="Portrait, wedding, event, fashion, commercial, and corporate photography services by Lara Nikolau.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header on-light">
+  <div class="container">
+    <a href="index.html" class="logo">Lara Nikolau</a>
+    <nav class="nav-desktop" aria-label="Primary">
+      <a href="portfolio.html">Portfolio</a>
+      <a href="about.html">About</a>
+      <a href="services.html" class="is-active">Services</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <a href="contact.html" class="nav-cta">Inquire</a>
+    <button class="menu-toggle" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobile-menu">
+  <a href="portfolio.html">Portfolio</a>
+  <a href="about.html">About</a>
+  <a href="services.html">Services</a>
+  <a href="contact.html">Contact</a>
+  <div class="mobile-social">
+    <a href="https://www.instagram.com/lara_nikolau/" target="_blank" rel="noopener">Instagram</a>
+    <a href="mailto:hello@lara-photography.com">Email</a>
+  </div>
+</div>
+
+<main>
+  <div class="container">
+    <div class="page-header reveal">
+      <span class="eyebrow">Services</span>
+      <h1>Ways to Work Together</h1>
+      <p>Every commission is treated as its own project — briefed, planned, and delivered with the same editorial care, whatever the occasion.</p>
+    </div>
+  </div>
+
+  <div class="container">
+    <div id="services-root"></div>
+  </div>
+
+  <section class="section center" style="background: var(--c-bg-alt); margin-top: 2rem;">
+    <div class="container">
+      <span class="eyebrow reveal">Not Sure Where to Start?</span>
+      <h2 class="reveal" style="margin-top:0.8rem; font-size:clamp(2rem,4vw,3rem);">Tell me about your project and I'll recommend the right fit.</h2>
+      <div class="reveal" style="margin-top:2rem;"><a href="contact.html" class="btn btn-dark">Get in Touch <span class="btn-arrow">&#8594;</span></a></div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">Lara Nikolau</a>
+        <p>Editorial photography rooted in stillness, light, and quiet emotion. Based in Paris — available worldwide.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Categories</h4>
+        <ul>
+          <li><a href="portfolio.html?category=weddings">Weddings</a></li>
+          <li><a href="portfolio.html?category=portraits">Portraits</a></li>
+          <li><a href="portfolio.html?category=fashion">Fashion</a></li>
+          <li><a href="portfolio.html?category=editorial">Editorial</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:hello@lara-photography.com">hello@lara-photography.com</a></li>
+          <li><a href="tel:+33612345678">+33 6 12 34 56 78</a></li>
+          <li><a href="https://www.instagram.com/lara_nikolau/" target="_blank" rel="noopener">Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; <span data-year></span> Lara Nikolau Photography. All rights reserved.</span>
+      <span>Paris · Available Worldwide</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script>
+  const root = document.getElementById('services-root');
+  if (root) {
+    SERVICES.forEach((s, i) => {
+      const row = document.createElement('article');
+      row.className = 'service-row';
+      row.innerHTML = `
+        <div class="sv-media reveal reveal-img"><img src="${s.image}" alt="${s.title}" loading="lazy"></div>
+        <div class="sv-text reveal">
+          <span class="sv-index">0${i + 1}</span>
+          <h3>${s.title}</h3>
+          <p>${s.description}</p>
+          <ul class="sv-includes">${s.includes.map((inc) => `<li>${inc}</li>`).join('')}</ul>
+          <div class="sv-footer">
+            <div class="sv-price"><span>Starting At</span>${s.price}</div>
+            <a href="#" class="btn btn-dark" data-inquire="${s.slug}">Inquire <span class="btn-arrow">&#8594;</span></a>
+          </div>
+        </div>`;
+      root.appendChild(row);
+    });
+    initReveals();
+    initServiceInquiryLinks();
+  }
+</script>
+</body>
+</html>

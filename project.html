@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Project — Lara Nikolau</title>
+<meta name="description" content="Featured editorial photography project by Lara Nikolau.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header on-light">
+  <div class="container">
+    <a href="index.html" class="logo">Lara Nikolau</a>
+    <nav class="nav-desktop" aria-label="Primary">
+      <a href="portfolio.html" class="is-active">Portfolio</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <a href="contact.html" class="nav-cta">Inquire</a>
+    <button class="menu-toggle" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobile-menu">
+  <a href="portfolio.html">Portfolio</a>
+  <a href="about.html">About</a>
+  <a href="services.html">Services</a>
+  <a href="contact.html">Contact</a>
+  <div class="mobile-social">
+    <a href="https://www.instagram.com/lara_nikolau/" target="_blank" rel="noopener">Instagram</a>
+    <a href="mailto:hello@lara-photography.com">Email</a>
+  </div>
+</div>
+
+<main id="project-root">
+  <!-- populated by js -->
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">Lara Nikolau</a>
+        <p>Editorial photography rooted in stillness, light, and quiet emotion. Based in Paris — available worldwide.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Categories</h4>
+        <ul>
+          <li><a href="portfolio.html?category=weddings">Weddings</a></li>
+          <li><a href="portfolio.html?category=portraits">Portraits</a></li>
+          <li><a href="portfolio.html?category=fashion">Fashion</a></li>
+          <li><a href="portfolio.html?category=editorial">Editorial</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:hello@lara-photography.com">hello@lara-photography.com</a></li>
+          <li><a href="tel:+33612345678">+33 6 12 34 56 78</a></li>
+          <li><a href="https://www.instagram.com/lara_nikolau/" target="_blank" rel="noopener">Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; <span data-year></span> Lara Nikolau Photography. All rights reserved.</span>
+      <span>Paris · Available Worldwide</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script>
+  (function renderProject() {
+    const params = new URLSearchParams(window.location.search);
+    const slug = params.get('slug');
+    const project = PROJECTS.find((p) => p.slug === slug) || PROJECTS[0];
+    const idx = PROJECTS.indexOf(project);
+    const prev = PROJECTS[(idx - 1 + PROJECTS.length) % PROJECTS.length];
+    const next = PROJECTS[(idx + 1) % PROJECTS.length];
+    const root = document.getElementById('project-root');
+
+    document.title = `${project.title} — Lara Nikolau`;
+
+    root.innerHTML = `
+      <section class="project-hero">
+        <img src="${project.cover}" alt="${project.title} cover photograph">
+        <div class="project-hero-text">
+          <span class="eyebrow">${project.category}</span>
+          <h1>${project.title}</h1>
+        </div>
+      </section>
+
+      <div class="container">
+        <dl class="project-info reveal">
+          <div><dt>Category</dt><dd>${project.category}</dd></div>
+          <div><dt>Location</dt><dd>${project.location}</dd></div>
+          <div><dt>Date</dt><dd>${project.date}</dd></div>
+          <div><dt>Summary</dt><dd style="font-size:1rem; font-family: var(--font-sans); color: var(--c-ink-soft);">${project.description}</dd></div>
+        </dl>
+
+        <p class="project-body reveal">${project.body}</p>
+
+        <div class="project-gallery" data-lightbox-group>
+          ${project.gallery.map((src, i) => `
+            <figure class="gallery-item ${['g-wide','g-tall','g-full','g-half','g-half'][i % 5]} reveal reveal-img"
+                    data-lightbox-item="${src}" data-title="${project.title}" data-category="${project.category}">
+              <img src="${src}" alt="${project.title} — photograph ${i + 1}" loading="lazy">
+              <span class="expand" aria-hidden="true">&#8599;</span>
+            </figure>
+          `).join('')}
+        </div>
+
+        <div class="project-nav-links reveal">
+          <a href="project.html?slug=${prev.slug}" class="text-link">&#8592; ${prev.title}</a>
+          <a href="portfolio.html" class="text-link">All Work</a>
+          <a href="project.html?slug=${next.slug}" class="text-link">${next.title} &#8594;</a>
+        </div>
+      </div>
+    `;
+
+    initReveals();
+    initLightboxTriggers();
+  })();
+</script>
+</body>
+</html>

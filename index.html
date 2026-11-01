@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lara Nikolau — Photographer</title>
+<meta name="description" content="Lara Nikolau is an editorial photographer specializing in portraits, weddings, fashion, and travel — working between Paris and the world.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="logo">Lara Nikolau</a>
+    <nav class="nav-desktop" aria-label="Primary">
+      <a href="portfolio.html">Portfolio</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <a href="contact.html" class="nav-cta">Inquire</a>
+    <button class="menu-toggle" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobile-menu">
+  <a href="portfolio.html">Portfolio</a>
+  <a href="about.html">About</a>
+  <a href="services.html">Services</a>
+  <a href="contact.html">Contact</a>
+  <div class="mobile-social">
+    <a href="https://www.instagram.com/lara_nikolau/" target="_blank" rel="noopener">Instagram</a>
+    <a href="mailto:hello@lara-photography.com">Email</a>
+  </div>
+</div>
+
+<main>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-media">
+      <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=2400&q=80" alt="Editorial portrait in soft natural light">
+    </div>
+    <div class="hero-content">
+      <span class="eyebrow hero-eyebrow">Editorial &amp; Fine Art Photographer</span>
+      <h1 class="hero-title">LARA<br>NIKOLAU</h1>
+      <p class="hero-tagline">Photography in the language of light, emotion, and quiet elegance.</p>
+      <div class="hero-actions">
+        <a href="portfolio.html" class="btn btn-light">View Portfolio <span class="btn-arrow">&#8594;</span></a>
+      </div>
+    </div>
+    <div class="scroll-cue">
+      <span>Scroll</span>
+      <span class="line"></span>
+    </div>
+  </section>
+
+  <!-- Intro statement -->
+  <section class="section-tight">
+    <div class="container">
+      <div class="intro-row reveal">
+        <p class="intro-statement">Every frame begins with <em>stillness</em> — an attention to light, gesture, and the moments that pass between poses.</p>
+        <div class="meta">
+          <span class="eyebrow">Based in Paris</span>
+          <p>Available worldwide for portraits, weddings, fashion, and commissioned editorial work.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider container" style="width: calc(100% - 2 * var(--gutter));">
+
+  <!-- Category showcase -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Selected Work</span>
+        <h2>The Portfolio</h2>
+        <p>An ongoing collection of portraits, weddings, and editorial stories — organized by mood rather than category.</p>
+      </div>
+      <div class="category-showcase" id="category-showcase"></div>
+    </div>
+  </section>
+
+  <!-- Featured Projects -->
+  <section class="section" style="padding-top:0;">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Featured Projects</span>
+        <h2>Recent Stories</h2>
+      </div>
+      <div id="featured-projects"></div>
+    </div>
+  </section>
+
+  <!-- About teaser -->
+  <section class="section">
+    <div class="container">
+      <div class="about-teaser">
+        <div class="at-media reveal reveal-img">
+          <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=1200&q=80" alt="Portrait of photographer Lara Nikolau">
+        </div>
+        <div class="at-text reveal">
+          <span class="eyebrow">About Lara</span>
+          <h2 style="margin-top:0.6rem; font-size: clamp(2rem, 4vw, 2.9rem);">An eye trained on stillness.</h2>
+          <p>For over a decade, Lara has photographed people and places with the same quiet attention — searching for the unguarded moment rather than the perfect one. Her work moves between fashion editorial, documentary wedding coverage, and personal travel projects, unified by a restrained, cinematic sense of light.</p>
+          <div style="margin-top:1.6rem;"><a href="about.html" class="text-link">More About Lara</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="section" style="background:var(--c-bg-alt);">
+    <div class="container">
+      <div class="section-head center reveal">
+        <span class="eyebrow">Kind Words</span>
+        <h2>Testimonials</h2>
+      </div>
+      <div class="testimonial-list" id="testimonial-list"></div>
+    </div>
+  </section>
+
+  <!-- Contact CTA -->
+  <section class="section center">
+    <div class="container">
+      <span class="eyebrow reveal">Let's Work Together</span>
+      <h2 class="reveal" style="margin-top:0.8rem; font-size:clamp(2.2rem,5vw,3.8rem); max-width: 18ch; margin-left:auto; margin-right:auto;">Let's create something beautiful.</h2>
+      <div class="reveal" style="margin-top:2.2rem;"><a href="contact.html" class="btn btn-dark">Start an Inquiry <span class="btn-arrow">&#8594;</span></a></div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">Lara Nikolau</a>
+        <p>Editorial photography rooted in stillness, light, and quiet emotion. Based in Paris — available worldwide.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Categories</h4>
+        <ul>
+          <li><a href="portfolio.html?category=weddings">Weddings</a></li>
+          <li><a href="portfolio.html?category=portraits">Portraits</a></li>
+          <li><a href="portfolio.html?category=fashion">Fashion</a></li>
+          <li><a href="portfolio.html?category=editorial">Editorial</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:hello@lara-photography.com">hello@lara-photography.com</a></li>
+          <li><a href="tel:+33612345678">+33 6 12 34 56 78</a></li>
+          <li><a href="https://www.instagram.com/lara_nikolau/" target="_blank" rel="noopener">Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; <span data-year></span> Lara Nikolau Photography. All rights reserved.</span>
+      <span>Paris · Available Worldwide</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script>
+  // Category showcase
+  const catWrap = document.getElementById('category-showcase');
+  if (catWrap) {
+    HOME_CATEGORIES.forEach((c) => {
+      const a = document.createElement('a');
+      a.href = `portfolio.html?category=${c.slug}`;
+      a.className = 'cat-card reveal reveal-img';
+      a.innerHTML = `<img src="${c.image}" alt="${c.label} photography by Lara Nikolau" loading="lazy">
+        <div class="cat-label"><span class="eyebrow">Category</span><h3>${c.label}</h3></div>`;
+      catWrap.appendChild(a);
+    });
+    initReveals();
+  }
+
+  // Featured projects
+  const projWrap = document.getElementById('featured-projects');
+  if (projWrap) {
+    PROJECTS.forEach((p, i) => {
+      const el = document.createElement('article');
+      el.className = 'project-feature reveal';
+      el.innerHTML = `
+        <div class="pf-media reveal-img"><img src="${p.cover}" alt="${p.title} — ${p.category}" loading="lazy"></div>
+        <div class="pf-text">
+          <span class="pf-index">0${i + 1}</span>
+          <h3>${p.title}</h3>
+          <p>${p.description}</p>
+          <div class="pf-meta"><span>${p.location}</span><span>${p.date}</span></div>
+          <a href="project.html?slug=${p.slug}" class="text-link">View Project</a>
+        </div>`;
+      projWrap.appendChild(el);
+    });
+    initReveals();
+  }
+
+  // Testimonials
+  const testWrap = document.getElementById('testimonial-list');
+  if (testWrap) {
+    TESTIMONIALS.slice(0, 3).forEach((t) => {
+      const el = document.createElement('div');
+      el.className = 'testimonial reveal';
+      el.innerHTML = `
+        <span class="mark">&#8220;</span>
+        <blockquote>${t.quote}</blockquote>
+        <div class="who"><div class="name">${t.name}</div><div class="role">${t.role}</div></div>`;
+      testWrap.appendChild(el);
+    });
+    initReveals();
+  }
+</script>
+</body>
+</html>
